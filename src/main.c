@@ -1,14 +1,18 @@
 #include "stm32f4xx_hal.h"
-
-#include "config/board_config.h"
-#include "config/robot_config.h"
+#include "app/motor_test.h"
 
 int main(void)
 {
     HAL_Init();
 
+    if (0U == motorTestInit())
+    {
+        while (1)
+        {
+        }
+    }
     while (1)
     {
-        /* Main application loop */
+        motorTestRun();
     }
 }
